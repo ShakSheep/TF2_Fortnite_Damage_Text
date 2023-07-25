@@ -1,21 +1,19 @@
 //================================================================================================================================
 // TF2 VSCRIPT - Fortnite Looking Damage Text (v1.0)
-// Made by ShakSheep, Inspired by butare's CSGO Server Plugin version
+// Made by ShakSheep, Heavily Based by butare's CSGO Server Plugin version
 // DEMO VIDEO: https://www.youtube.com/watch?v=Qqdx3fcDhQM
 //================================================================================================================================
 
 // ======== Put this command in console to load in any map ======== //
 // script_execute fortnite_hitnums/load_fortnite_hitnums
 // ======== Put this command in console to debug. NOTE: only do this if you know what you are doing!!! ======== //
-// script_execute fortnite_hitnums/load_fortnite_hitnums;script GetListenServerHost().ShowFortniteDamage(GetListenServerHost(), 9999, true);
+// script_execute fortnite_hitnums/load_fortnite_hitnums;script ShowFortniteDamage(GetListenServerHost(), GetListenServerHost(), 9999, true);
 
 PrecacheModel("materials/particles/fortnite/hitnums/nums_bw.vmt");
-::CTFPlayer.ShowFortniteDamage <- function(attacker, damage, crit, radius, debugMode) {
+function ShowFortniteDamage(victim, attacker, damage, crit, radius, debugMode) {
 
 	// BUG: first number 4 digit damage amounts doesn't line up properly.
 	// TODO: damage number adding overtime.
-	
-	local victim = this;
 	if (!victim.IsInvulnerable() && attacker != victim)
 	{
 		local x = RandomInt(-10, 10);
@@ -40,10 +38,9 @@ PrecacheModel("materials/particles/fortnite/hitnums/nums_bw.vmt");
 		}
 	}
 }
-// ::CTFBot.ShowFortniteDamage <- CTFPlayer.ShowFortniteDamage;
 
 
-::SpawnParticle <- function(strName, intOrigin, strParentName = "", strParentAttachment = "", keepEntity = true) {
+function SpawnParticle(strName, intOrigin, strParentName = "", strParentAttachment = "", keepEntity = true) {
 
 	local effect = SpawnEntityFromTable("info_particle_system",
 	{
@@ -60,7 +57,7 @@ PrecacheModel("materials/particles/fortnite/hitnums/nums_bw.vmt");
 	
 	return effect;
 }
-::GetEntitiesInRadius <- function(client, target, dist) {
+function GetEntitiesInRadius(client, target, dist) {
 
 	local clientPos = client.GetOrigin();
     local entity = null;
@@ -82,7 +79,7 @@ function OnPlayerHurt(event) {
 		return;
 	
 	// BUG: Damage Text still appear despite not looking at someone from a far distance.
-	victim.ShowFortniteDamage(attacker, event["damageamount"], (event["crit"] || event["minicrit"]), 700, false);
+	ShowFortniteDamage(victim, attacker, event["damageamount"], (event["crit"] || event["minicrit"]), 700, false);
 }
 ::OnGameEvent_player_hurt <- OnPlayerHurt.bindenv(this);
 __CollectGameEventCallbacks(this);
