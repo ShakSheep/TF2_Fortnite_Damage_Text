@@ -1,6 +1,6 @@
 //================================================================================================================================
 // TF2 VSCRIPT - Fortnite Looking Damage Text (v1.0)
-// Made by ShakSheep, Inspired by butare's CSGO Setver Plugin version
+// Made by ShakSheep, Inspired by butare's CSGO Server Plugin version
 // DEMO VIDEO: https://www.youtube.com/watch?v=Qqdx3fcDhQM
 //================================================================================================================================
 
