@@ -1,5 +1,11 @@
-# TF2 VSCRIPT - Fortnite Looking Damage Text
-VScript for TF2 that displays Fortnite Looking Damage text everytime you hit someone.
+# TF2 VSCRIPT - Fortnite-Looking Damage Text
+VScript for TF2 that displays Fortnite-Looking Damage text everytime you hit someone.
 
-## HOW TO INSTALL:
+## VIDEO DEMONSTRATION
+https://www.youtube.com/watch?v=Qqdx3fcDhQM
 
+## HOW TO INSTALL
+1. Download release.
+2. Add and unpack .zip file within the "Custom" folder.
+3. Run it through an entity on your map or type "script_execute fortnite_hitnums/load_fortnite_hitnums" into your console while in a local server map.
+4. Enjoy.
