@@ -1,0 +1,9 @@
+"SpriteCard"
+{
+	"$basetexture"	"particles/fortnite/hitnums/nums_bw"
+	"$addself"		"1.0"
+	"$minsize" 		"0.01"
+	
+	// Original Author: GAMMACASE
+	// Ported: Sheep
+}
